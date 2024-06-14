@@ -1,6 +1,6 @@
--- POPULARE
+-- POPULATE
 
--- Populare tabel departamente
+-- Populate departments table
 INSERT INTO departments VALUES (10, 'Aube');
 INSERT INTO departments VALUES (51, 'Marne');
 INSERT INTO departments VALUES (8, 'Ardennes');
@@ -14,7 +14,7 @@ INSERT INTO departments VALUES (68, 'Bas-Rhin');
 SELECT * FROM departments; 
     
 
--- Populare tabel orase
+-- Populate cities table
 INSERT INTO cities VALUES ('TRO', 'Troyes', 10);
 INSERT INTO cities VALUES ('CHAL', 'Chalons-en-Champagne', 51);
 INSERT INTO cities VALUES ('CHARL', 'Charleville Mezieres', 8);
@@ -30,7 +30,7 @@ INSERT INTO cities VALUES ('STRAS', 'Strasbourg', 68);
 SELECT * FROM cities;
 
 
--- Populare tabel clienti
+-- Populate clients table
 INSERT INTO clients VALUES (57962, 'naturalPerson', 'Dubois', 'Camille', 'camille.dubois@yahoo.fr', '16 Rue de la Monnaie', '+33654321098', 10000, 'TRO'); 
 INSERT INTO clients VALUES (12567, 'legalPerson', 'Martin', 'Lea', 'martin.lea83@gmail.com', '1 Place de la Cathedrale', '+33187654321', 68000, 'COL'); 
 INSERT INTO clients VALUES (56324, 'legalPerson', 'Leroy', 'Antoine', 'leroyantoine@yahoo.fr', '2 Rue des Hallebardes', '+33921436587', 67000, 'STRAS'); 
@@ -40,7 +40,7 @@ INSERT INTO clients VALUES (48756, 'legalPerson', 'Lefevre', 'Louis', 'louis-lef
 SELECT * FROM clients;
 
 
--- Populare tabel reprezentante
+-- Populate dealers table
 INSERT INTO dealers VALUES ('ATA', 'Aube Toyota', '98 Rue de la Contrefacon', 10000, '+33354956283');
 INSERT INTO dealers VALUES ('MAO', 'Marne Auto', '12 Rue des Fleurs', 54000, '+33356985402');
 INSERT INTO dealers VALUES ('ADS', 'Ardennes Motors', '46 Avenue des Champs', 08000, '+33356854261');
@@ -55,15 +55,15 @@ INSERT INTO dealers VALUES ('HRA', 'Haut Rhin Toyota', '1 Rue des Oliviers', 680
 SELECT * FROM dealers;
 
 
--- Populare tabel autovehicule
--- Hybride
+-- Populate vehicles table
+-- Hybrid
 INSERT INTO vehicles VALUES ('ASDW5496825643520', 'Yaris', TO_DATE('2020', 'YYYY'), 'Dynamic', 22500, 'Ruby Flare Pearl', 'A', 116, 120, '195/50 R16', 'Hatchback', 800, TO_DATE('11/09/2025', 'DD/MM/YYYY'), 1.5, 4, 1.5, 6, 'Petrol', 'ADS');
 INSERT INTO vehicles VALUES ('ODUE4592635978421', 'RAV4', TO_DATE('2021', 'YYYY'), 'Active', 35000, 'Lunar Rock', 'A', 218, 221, '235/55 R19', 'SUV', 1000, TO_DATE('11/09/2024', 'DD/MM/YYYY'), 2.5, 5, 2.5, 6, 'Petrol', 'MMR');
 INSERT INTO vehicles VALUES ('ADDE5468259536521', 'C-HR', TO_DATE('2023', 'YYYY'), 'Exclusive', 35000, 'Black', 'A', 220, 142, '225/60 R17', 'Crossover', 800, TO_DATE('15/07/2026', 'DD/MM/YYYY'), 5, 4.5, 2, 6, 'Petrol', 'HMR');
 INSERT INTO vehicles VALUES ('PGIR4582165982365', 'Camry', TO_DATE('2022', 'YYYY'), 'Dynamic', 42000, 'Super White', 'A', 230, 220, '235/45 R18', 'Sedan', 700, TO_DATE('20/08/2025', 'DD/MM/YYYY'), 6.5, 4.9, 2, 6, 'Petrol', 'BRS'); 
 INSERT INTO vehicles VALUES ('OVGD5489602135012', 'C-HR', TO_DATE('2023', 'YYYY'), 'Exclusive', 45000, 'Midnight Black Metallic', 'A', 202, 215, '235/60 R18', 'Crossover', 750, TO_DATE('05/04/2025', 'DD/MM/YYYY'), 8, 5.1, 2, 6, 'Petrol', 'HRR');
 INSERT INTO vehicles VALUES ('PIII8549652365022', 'RAV4', TO_DATE('2024', 'YYYY'), 'Active', 48000, 'Blueprint', 'A', 176, 220, '235/65 R17', 'SUV', 800, TO_DATE('06/04/2026', 'DD/MM/YYYY'), 6.5, 5, 1.8, 6, 'Petrol', 'HRR');
--- Cu combustibil
+-- Fuel
 INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('JSHA4582163542546', 'Corolla', TO_DATE('2019', 'YYYY'), 'Exclusive', 25000, 'Blueprint', 'M', 132, 160, '205/55 R16', 'Sedan', 520, TO_DATE('01/01/2025', 'DD/MM/YYYY'), 6.5, 1.6, 6, 'Petrol', 'ADS');
 INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
@@ -72,7 +72,7 @@ INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, pri
 VALUES ('OVUY4857962352501', 'RAV4', TO_DATE('2022', 'YYYY'), 'Dynamic', 40000, 'Black', 'M', 203, 243, '235/60 R18', 'SUV', 550, TO_DATE('05/05/2026', 'DD/MM/YYYY'), 8.2, 1.6, 6, 'Diesel', 'HRA');
 INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('FISH4859645236502', 'Yaris', TO_DATE('2021', 'YYYY'), 'Active', 25000, 'Supersonic Red', 'A', 95, 190, '185/60 R15', 'Hatchback', 800, TO_DATE('06/10/2026', 'DD/MM/YYYY'), 4, 1.2, 6, 'Diesel', 'ATA');
--- Electrice
+-- Electric
 INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
 VALUES ('AOSD1245649865320', 'bZ4X', TO_DATE('2023', 'YYYY'), 'Exclusive', 45000, 'Super White', 'A', 201, 220, '225/60 R17', 'SUV', 300, TO_DATE('05/01/2026', 'DD/MM/YYYY'), 71.4, 'MAS');
 INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
@@ -82,7 +82,7 @@ VALUES ('CURB5682549685214', 'Prius', TO_DATE('2024', 'YYYY'), 'Active', 42000, 
 SELECT * FROM vehicles;
 
 
--- Populare tabel vanzari
+-- Populate sales table
 INSERT INTO sales VALUES (5246, TO_DATE('30/04/2024 15:34', 'DD/MM/YYYY HH24:MI'), 'Integral', NULL, 57962, 'JSHA4582163542546');
 INSERT INTO sales VALUES (9863, TO_DATE('29/04/2024 13:45', 'DD/MM/YYYY HH24:MI'), 'Rate', NULL, 12567, 'ASDW5496825643520');
 INSERT INTO sales VALUES (7852, TO_DATE('15/07/2023 14:08', 'DD/MM/YYYY HH24:MI'), 'Rate', 0.1, 56324, 'ODUE4592635978421');
@@ -96,7 +96,7 @@ INSERT INTO sales VALUES (9782, TO_DATE('04/12/2023 09:54', 'DD/MM/YYYY HH24:MI'
 SELECT invoice_nb, TO_CHAR(date_time, 'DD/MM/YYYY HH24:MI:SS') AS date_time_completa, type_plata, promo, id_cet, chassis_nb_aul FROM sales;
 
 
--- Populare tabel angajati
+-- Populate employees table
 INSERT INTO employees VALUES (3515, 'Zimmermann', 'Lucas', 2500, TO_DATE('20/04/2023', 'DD/MM/YYYY'), 'Parttime', NULL, 'CHARL', 'MAO', NULL);
 INSERT INTO employees VALUES (2514, 'Lemoine', 'Emilie', 7500, TO_DATE('15/04/2017', 'DD/MM/YYYY'), 'Fulltime', 1500, 'CHAL', 'MAO', NULL);
 INSERT INTO employees VALUES (6951, 'Fischer', 'Lara', 8600, TO_DATE('16/05/2014', 'DD/MM/YYYY'), 'Fulltime', NULL, 'CHARL', 'ADS', NULL);
@@ -117,16 +117,16 @@ SELECT * FROM employees;
 
 
 
--- ACTUALIZARI DE CONTINUT
+-- CONTENT UPDATES
 
--- 1. Schimb departamentul clientului Dubois Charlotte din EPIN in CHARL
+-- 1. Chnage department of Dubois Charlotte from EPIN to CHARL
 UPDATE clients SET id_ors = 'CHARL' WHERE id = 59135;
 SELECT id, id_ors FROM clients;
 
--- 2. Schimb colora masinii cu serie de sasiu PGIR4582165982365 din Super White in Lunar Rock
+-- 2. Change the color of the car with chassis number PGIR4582165982365 from Super White to Lunar Rock
 UPDATE vehicles SET color = 'Lunar Rock' WHERE chassis_nb = 'PGIR4582165982365';
 SELECT chassis_nb, color FROM vehicles;
 
--- 3. Dupa ce masina clientului Marin Lea a ajuns cu un mic defect de fabrica strict cosmetic, clientul primeste o promo de 7%. Asadar, factura trebuie modificata
+-- 3. After Marin Lea's car arrived with a small production defect, the client gets a 7% promotion. As a result, the invoice must be modified
 UPDATE sales SET promo = 0.07 WHERE invoice_nb = 9782;
 SELECT invoice_nb, promo FROM sales;
