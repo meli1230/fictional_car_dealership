@@ -1,118 +1,118 @@
--- create tables
+-- CREARE TABELE
 
-CREATE TABLE p_departamente
+CREATE TABLE departments
 (
-    numar NUMBER(2) PRIMARY KEY, 
-    denumire VARCHAR2(30) NOT NULL UNIQUE
+    number NUMBER(2) PRIMARY KEY, 
+    name VARCHAR2(30) NOT NULL UNIQUE
 );
-DESCRIBE p_departamente;
+DESCRIBE departments;
 
-CREATE TABLE p_orase
+CREATE TABLE cities
 (
-    cod VARCHAR2(5) PRIMARY KEY, 
-    denumire VARCHAR2(25) NOT NULL UNIQUE, 
-    numar_dpt NUMBER(2) NOT NULL REFERENCES p_departamente(numar)
+    id VARCHAR2(5) PRIMARY KEY, 
+    name VARCHAR2(25) NOT NULL UNIQUE, 
+    number_dpt NUMBER(2) NOT NULL REFERENCES departments(number)
 );
-DESCRIBE p_orase;
+DESCRIBE cities;
 
-CREATE TABLE p_clienti
+CREATE TABLE clients
 (
-    cod NUMBER(5) PRIMARY KEY,
-    persoana VARCHAR2(8) NOT NULL CHECK(persoana IN ('juridica', 'fizica')),
-    nume VARCHAR2(20) NOT NULL,
-    prenume VARCHAR2(20) NOT NULL,
+    id NUMBER(5) PRIMARY KEY,
+    person VARCHAR2(20) NOT NULL CHECK(person IN ('legalPerson', 'naturalPerson')),
+    name VARCHAR2(20) NOT NULL,
+    surname VARCHAR2(20) NOT NULL,
     email VARCHAR2(35) NOT NULL,
-    adresa VARCHAR2(35) NOT NULL,
-    nr_telefon CHAR(12) NOT NULL,
-    cod_postal NUMBER(5) NOT NULL,
-    cod_ors VARCHAR2(5) NOT NULL REFERENCES p_orase(cod)
+    address VARCHAR2(35) NOT NULL,
+    phone_nb CHAR(12) NOT NULL,
+    postal_ide NUMBER(5) NOT NULL,
+    id_ors VARCHAR2(5) NOT NULL REFERENCES cities(id)
 );
-DESCRIBE p_clienti;
+DESCRIBE clients;
 
-CREATE TABLE p_reprezentante
+CREATE TABLE dealers
 (
-    cod CHAR(3) PRIMARY KEY,
-    denumire VARCHAR2(15) NOT NULL,
-    adresa VARCHAR2(35) NOT NULL,
-    cod_postal NUMBER(5) NOT NULL,
-    nr_telefon VARCHAR2(12) NOT NULL
+    id CHAR(3) PRIMARY KEY,
+    name VARCHAR2(15) NOT NULL,
+    address VARCHAR2(35) NOT NULL,
+    postal_ide NUMBER(5) NOT NULL,
+    phone_nb VARCHAR2(12) NOT NULL
 );
-DESCRIBE p_reprezentante;
+DESCRIBE dealers;
 
-CREATE TABLE p_autovehicule
+CREATE TABLE vehicles
 (
-    serie_sasiu VARCHAR2(17) PRIMARY KEY,
-    model_auto VARCHAR2(10) NOT NULL,
-    an_productie DATE NOT NULL,
-    echipare VARCHAR2(9) NOT NULL,
-    pret_vanzare NUMBER(6) NOT NULL,
-    culoare VARCHAR2(25) NOT NULL,
-    transmisie CHAR(1) NOT NULL CHECK (transmisie IN ('A', 'M')),
-    putere_motor NUMBER(3) NOT NULL,
-    cuplu NUMBER(3) NOT NULL,
-    dim_anvelope VARCHAR2(15) NOT NULL,
-    tip VARCHAR2(10) NOT NULL CHECK (tip IN('SUV', 'Hatchback', 'Sedan', 'Crossover')),
-    autonomie NUMBER(3) NOT NULL,
-    data_disponibilitate DATE NOT NULL, 
-    capacitate_baterie NUMBER(2,1),
-    consum_mediu NUMBER(2,1),
-    motorizare NUMBER(2,1),
-    indice_euro NUMBER(1),
-    tip_carburant VARCHAR2(10), 
-    cod_rpa CHAR(3) NOT NULL REFERENCES p_reprezentante(cod)
+    chassis_nb VARCHAR2(17) PRIMARY KEY,
+    vehicle_model VARCHAR2(10) NOT NULL,
+    production_year DATE NOT NULL,
+    equipment VARCHAR2(9) NOT NULL,
+    price NUMBER(6) NOT NULL,
+    color VARCHAR2(25) NOT NULL,
+    transmission CHAR(1) NOT NULL CHECK (transmission IN ('A', 'M')),
+    motor_power NUMBER(3) NOT NULL,
+    torque NUMBER(3) NOT NULL,
+    tire_size VARCHAR2(15) NOT NULL,
+    type VARCHAR2(10) NOT NULL CHECK (type IN('SUV', 'Hatchback', 'Sedan', 'Crossover')),
+    range NUMBER(3) NOT NULL,
+    launch_date DATE NOT NULL, 
+    battery_size NUMBER(2,1),
+    fuel_efficiency NUMBER(2,1),
+    powertrain NUMBER(2,1),
+    euro_rating NUMBER(1),
+    type_carburant VARCHAR2(10), 
+    id_rpa CHAR(3) NOT NULL REFERENCES dealers(id)
 );
-DESCRIBE p_autovehicule;
+DESCRIBE vehicles;
 
-CREATE TABLE p_vanzari
+CREATE TABLE sales
 (
-    nr_factura NUMBER(4),
-    data_ora DATE,
-    tip_plata CHAR(8) NOT NULL CHECK (tip_plata IN ('Integral', 'Rate')),
-    reducere NUMBER(4,2),
-    cod_cet NUMBER(5) NOT NULL REFERENCES p_clienti(cod),
-    serie_sasiu_aul VARCHAR2(17) NOT NULL REFERENCES p_autovehicule(serie_sasiu),
-    PRIMARY KEY (nr_factura, data_ora)
+    invoice_nb NUMBER(4),
+    date_time DATE,
+    type_plata CHAR(8) NOT NULL CHECK (type_plata IN ('Integral', 'Rate')),
+    promo NUMBER(4,2),
+    id_cet NUMBER(5) NOT NULL REFERENCES clients(id),
+    chassis_nb_aul VARCHAR2(17) NOT NULL REFERENCES vehicles(chassis_nb),
+    PRIMARY KEY (invoice_nb, date_time)
 );
-DESCRIBE p_vanzari;
+DESCRIBE sales;
 
-CREATE TABLE p_angajati
+CREATE TABLE employees
 (
-    cod NUMBER(4) PRIMARY KEY,
-    nume VARCHAR2(20) NOT NULL,
-    prenume VARCHAR2(20) NOT NULL,
-    salar NUMBER(5) NOT NULL,
-    data_ang DATE NOT NULL,
-    tip_ang CHAR(8) NOT NULL,
+    id NUMBER(4) PRIMARY KEY,
+    name VARCHAR2(20) NOT NULL,
+    surname VARCHAR2(20) NOT NULL,
+    salary NUMBER(5) NOT NULL,
+    employment_date DATE NOT NULL,
+    type_ang CHAR(8) NOT NULL,
     bonus NUMBER(4),
-    cod_ors VARCHAR2(5) NOT NULL REFERENCES p_orase(cod), 
-    cod_rpa CHAR(3) NOT NULL REFERENCES p_reprezentante(cod),
-    cod_drr NUMBER(4) REFERENCES p_angajati(cod)
+    id_ors VARCHAR2(5) NOT NULL REFERENCES cities(id), 
+    id_rpa CHAR(3) NOT NULL REFERENCES dealers(id),
+    id_drr NUMBER(4) REFERENCES employees(id)
 );
-DESCRIBE p_angajati;
+DESCRIBE employees;
 
 
--- structure alterations
+-- MODIFICARI DE STRUCTURA
 
--- 1. Alter "p_departamente" table so that its number can only be between 8 and 88
-ALTER TABLE p_departamente MODIFY numar NUMBER(2) CHECK (numar BETWEEN 8 AND 88);
+-- 1. Modific tabela departamente astfel incat number sa fie intre 8 si 88
+ALTER TABLE departments MODIFY number NUMBER(2) CHECK (number BETWEEN 8 AND 88);
 
 
--- 2. Alter "p_autovehicule" table so that "indice_euro" is between 1 and 6
-ALTER TABLE p_autovehicule MODIFY indice_euro NUMBER(1) CHECK (indice_euro BETWEEN 1 AND 6);
+-- 2. Modific tabela autovehicule astfel incat euro_rating sa fie intre 1 si 6
+ALTER TABLE vehicles MODIFY euro_rating NUMBER(1) CHECK (euro_rating BETWEEN 1 AND 6);
 
--- 3. Modific tabela reprezentante astfel incat denumire sa fie de lungime 20 in loc de 15, pentru a putea incapea nume mai lungi de reprezentante
-ALTER TABLE p_reprezentante MODIFY denumire VARCHAR2(20);
-DESCRIBE p_reprezentante;
+-- 3. Modific tabela reprezentante astfel incat name sa fie de lungime 20 in loc de 15, pentru a putea incapea name mai lungi de reprezentante
+ALTER TABLE dealers MODIFY name VARCHAR2(20);
+DESCRIBE dealers;
 
--- 4. Modific tabela autovehicule astfel incat echiparea sa fie Dynamic, Exclusive sau Active
-ALTER TABLE p_autovehicule MODIFY echipare VARCHAR2(9) CHECK (echipare IN ('Active', 'Dynamic', 'Exclusive'));
+-- 4. Modific tabela autovehicule astfel incat equipmenta sa fie Dynamic, Exclusive sau Active
+ALTER TABLE vehicles MODIFY equipment VARCHAR2(9) CHECK (equipment IN ('Active', 'Dynamic', 'Exclusive'));
 
 -- 5. Modific tabela autovehicule astfel incat autonomia sa poata depasi 999 
-ALTER TABLE p_autovehicule MODIFY autonomie NUMBER(4);  
+ALTER TABLE vehicles MODIFY range NUMBER(4);  
 
--- 6. Modific tabela autovehicule astfel incat atributul putere_motor sa fie redenumit in putere, pentru a se alinia mai bine cu specificatiile unei masini electrice
-ALTER TABLE p_autovehicule RENAME COLUMN putere_motor TO putere;
+-- 6. Modific tabela autovehicule astfel incat atributul motor_power sa fie redenumit in putere, pentru a se alinia mai bine cu specificatiile unei masini electrice
+ALTER TABLE vehicles RENAME COLUMN motor_power TO putere;
 
 -- 7. Modific tabela autovehicule astfel incat capacitate baterie sa poată fi de forma xx.x
-ALTER TABLE p_autovehicule MODIFY capacitate_baterie NUMBER(3,1);
-DESCRIBE p_autovehicule;
+ALTER TABLE vehicles MODIFY battery_size NUMBER(3,1);
+DESCRIBE vehicles;
