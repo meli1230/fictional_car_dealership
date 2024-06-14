@@ -1,4 +1,4 @@
--- CREARE TABELE
+-- CREATE TABLES
 
 CREATE TABLE departments
 (
@@ -91,27 +91,27 @@ CREATE TABLE employees
 DESCRIBE employees;
 
 
--- MODIFICARI DE STRUCTURA
+-- STRUCTURE CHANGES
 
--- 1. Modific tabela departamente astfel incat number sa fie intre 8 si 88
+-- 1. Change departments table so that number must be between 8 and 88
 ALTER TABLE departments MODIFY number NUMBER(2) CHECK (number BETWEEN 8 AND 88);
 
 
--- 2. Modific tabela autovehicule astfel incat euro_rating sa fie intre 1 si 6
+-- 2. Change vehicles so that euro_rating must be between 1 and 6
 ALTER TABLE vehicles MODIFY euro_rating NUMBER(1) CHECK (euro_rating BETWEEN 1 AND 6);
 
--- 3. Modific tabela reprezentante astfel incat name sa fie de lungime 20 in loc de 15, pentru a putea incapea name mai lungi de reprezentante
+-- 3. Change dealers table so that name must be of length 20 instead of 15
 ALTER TABLE dealers MODIFY name VARCHAR2(20);
 DESCRIBE dealers;
 
--- 4. Modific tabela autovehicule astfel incat equipmenta sa fie Dynamic, Exclusive sau Active
+-- 4. Change vehicles so that equiment must be eiter Dynamic, Exclusive or Active
 ALTER TABLE vehicles MODIFY equipment VARCHAR2(9) CHECK (equipment IN ('Active', 'Dynamic', 'Exclusive'));
 
--- 5. Modific tabela autovehicule astfel incat autonomia sa poata depasi 999 
+-- 5. Change vehicles table so that range can go past 999
 ALTER TABLE vehicles MODIFY range NUMBER(4);  
 
--- 6. Modific tabela autovehicule astfel incat atributul motor_power sa fie redenumit in putere, pentru a se alinia mai bine cu specificatiile unei masini electrice
-ALTER TABLE vehicles RENAME COLUMN motor_power TO putere;
+-- 6. Modific tabela autovehicule astfel incat atributul motor_power sa fie redenumit in power, pentru a se alinia mai bine cu specificatiile unei masini electrice
+ALTER TABLE vehicles RENAME COLUMN motor_power TO power;
 
 -- 7. Modific tabela autovehicule astfel incat capacitate baterie sa poată fi de forma xx.x
 ALTER TABLE vehicles MODIFY battery_size NUMBER(3,1);
