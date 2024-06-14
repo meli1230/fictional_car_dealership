@@ -110,9 +110,9 @@ ALTER TABLE vehicles MODIFY equipment VARCHAR2(9) CHECK (equipment IN ('Active',
 -- 5. Change vehicles table so that range can go past 999
 ALTER TABLE vehicles MODIFY range NUMBER(4);  
 
--- 6. Modific tabela autovehicule astfel incat atributul motor_power sa fie redenumit in power, pentru a se alinia mai bine cu specificatiile unei masini electrice
+-- 6. Change the name of the motor_power attribute from the vehicles table into power, so that it better aligns with the specificities of an electric vehicle
 ALTER TABLE vehicles RENAME COLUMN motor_power TO power;
 
--- 7. Modific tabela autovehicule astfel incat capacitate baterie sa poată fi de forma xx.x
+-- 7. Change vehicles table so that battery_size can take the form of xx.x
 ALTER TABLE vehicles MODIFY battery_size NUMBER(3,1);
 DESCRIBE vehicles;
