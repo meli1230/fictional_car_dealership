@@ -1,50 +1,20 @@
-
-
 # Brief overview
-This is a short project, coded in C, that manages a contact list using a doubly linked list. The program allows you to add or remove contacts, to search contacts by name and to display all the contacts. It also includes two sorting functions, each using a different sorting algorithm. <br/>
+This project, using SQL, manages the database of a fictional car dealership. Apart from table creation, structure alteration and data insertion, it also contains views and queries, which are used to display relevant information, such as the performance of different selling locations. <br/>
 
 
 # Structure
-- main.c --> main program logic
-- contacts.c --> implementation of contact list functions, such as add, remove, search and display all contacts
-- contacts.h --> header file associated to contacts.c
-- sorting.c --> sorting functions implementation
-- sorting.h --> header file associated to sorting.c
+- create_alter_tables.sql --> creation of tables and alterations
+- populate_tables.sql --> population of tables with data
+- views_and_queries --> views and queries on the created views
 
 
-# Implementation of functionalities
-### contacts.c
-- list initialization 
-- add a contact to the list
-- remove a contact from the list
-- empty the list
-- search a contact by name
-- display all contacts
-
-### contacts.h
-- swap function that is used by the sorting algorithms
-- insertion sort function that sorts contacts by name
-- bubble sort function that sorts contacts by age
-
+# Views and queries
+In the views_and_queries file, the code written there responds to possible questions of a fictional manager of the dealeriship chain. Those demands are, as follows:
+- Display the dealerships, the cars that are or used to be in stock, their price and the chassis number. Then, based on this information, display the dealerships that sold vehicles for an amount greater than a number chosen by the manager (the displayed sum should not include price reductions of any kind).
+- Display all the clients and their departments, in alphabetical order of their surname and then of their name.
+- Which vehicles are or used to be in stock? Display the models and their prices for the vehicles that are still in stock, and for the others, display the invoice number, the date and time of the sale and the client's name.
+- How much money did each dealership make from selling cars, including price reductions? Order the dealerships by their performance.
+  
 
 # How to run
-In order to run this program, you will first need to make sure you have a C compiler installed on your machine, such as GCC or MinGW. Next, you need to clone this project locally. In the end, you simply have to run it, either by using an IDE or directly from the command line. <br/>
-
-
-1.	Să se afișeze reprezentanțele, autovehiculele pe care le au sau le-au avut un stoc, prețul lor de vânzare și seria de șasiu.
-Apoi, pe baza informațiilor de mai sus să se afișeze care sunt reprezentanțele care au vândut autovehicule de valoare mai mare de un anumit număr de Euro, valoare care va fi introdusă de către manager, neluând în considerare reducerile acordate?
-
-2.	Care sunt clienții și departamentele din care provin aceștia? 
-Să se afișeze aceștia în ordine alfabetică a numelui, apoi a prenumelui.
-
-3.	Care sunt autovehiculele care sunt sau au fost în stoc? Să se afișeze modelul și prețul de vânzare pentru autovehiculele care sunt încă în stoc, iar pentru restul să se afișeze și numărul facturii, data și ora vânzării și numele clientului către care s-a efectuat vânzarea.
-Să se afișeze, apoi, doar autovehiculele care nu mai sunt în stoc.
-
-4.	Care sunt valorile vânzărilor reprezentanțelor, cu tot cu reducere? 
-Să se ordoneze reprezentanțele în funcție de performanța lor.
-
-
-Apart from table creation, structure alteration and data insertion, it also contains views and queries, which are used to display relevant information, such as the performance of different selling locations.
-
-
-This project contains 3 virtual machines: a machine that runs Windows Server, one that runs Windows Client and the last one running Ubuntu. The alterations made in each VM is thoroughly described in the README file.
+In order to run the program, you will need to download a tool that can execute SQL scripts, such as SQLite or DB Browser (provides a graphical interface). You then need to clone the files in this repo and then run create_alter_tables.sql and then populate_tables.sql. In order to see the views, and queries, you need to run them separately.
