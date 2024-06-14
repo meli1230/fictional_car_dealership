@@ -64,20 +64,20 @@ INSERT INTO vehicles VALUES ('PGIR4582165982365', 'Camry', TO_DATE('2022', 'YYYY
 INSERT INTO vehicles VALUES ('OVGD5489602135012', 'C-HR', TO_DATE('2023', 'YYYY'), 'Exclusive', 45000, 'Midnight Black Metallic', 'A', 202, 215, '235/60 R18', 'Crossover', 750, TO_DATE('05/04/2025', 'DD/MM/YYYY'), 8, 5.1, 2, 6, 'Petrol', 'HRR');
 INSERT INTO vehicles VALUES ('PIII8549652365022', 'RAV4', TO_DATE('2024', 'YYYY'), 'Active', 48000, 'Blueprint', 'A', 176, 220, '235/65 R17', 'SUV', 800, TO_DATE('06/04/2026', 'DD/MM/YYYY'), 6.5, 5, 1.8, 6, 'Petrol', 'HRR');
 -- Cu combustibil
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('JSHA4582163542546', 'Corolla', TO_DATE('2019', 'YYYY'), 'Exclusive', 25000, 'Blueprint', 'M', 132, 160, '205/55 R16', 'Sedan', 520, TO_DATE('01/01/2025', 'DD/MM/YYYY'), 6.5, 1.6, 6, 'Petrol', 'ADS');
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('AORJ5246358154692', 'C-HR', TO_DATE('2023', 'YYYY'), 'Active', 33000, 'Supersonic Red', 'M', 120, 250, '215/60 R17', 'Crossover', 700, TO_DATE('20/04/2026', 'DD/MM/YYYY'), 5, 1.4, 6, 'Diesel', 'MAR');
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('OVUY4857962352501', 'RAV4', TO_DATE('2022', 'YYYY'), 'Dynamic', 40000, 'Black', 'M', 203, 243, '235/60 R18', 'SUV', 550, TO_DATE('05/05/2026', 'DD/MM/YYYY'), 8.2, 1.6, 6, 'Diesel', 'HRA');
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, fuel_efficiency, powertrain, euro_rating, type_carburant, id_rpa)
 VALUES ('FISH4859645236502', 'Yaris', TO_DATE('2021', 'YYYY'), 'Active', 25000, 'Supersonic Red', 'A', 95, 190, '185/60 R15', 'Hatchback', 800, TO_DATE('06/10/2026', 'DD/MM/YYYY'), 4, 1.2, 6, 'Diesel', 'ATA');
 -- Electrice
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
 VALUES ('AOSD1245649865320', 'bZ4X', TO_DATE('2023', 'YYYY'), 'Exclusive', 45000, 'Super White', 'A', 201, 220, '225/60 R17', 'SUV', 300, TO_DATE('05/01/2026', 'DD/MM/YYYY'), 71.4, 'MAS');
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
 VALUES ('NMTD5485936482514', 'RAV4 EV', TO_DATE('2022', 'YYYY'), 'Dynamic', 48000, 'Midnight Black Metallic', 'A', 218, 221, '235/65 R17', 'SUV', 320, TO_DATE('10/02/2026', 'DD/MM/YYYY'), 78, 'VTA');
-INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, putere, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
+INSERT INTO vehicles (chassis_nb, vehicle_model, production_year, equipment, price, color, transmission, power, torque, tire_size, type, range, launch_date, battery_size, id_rpa)
 VALUES ('CURB5682549685214', 'Prius', TO_DATE('2024', 'YYYY'), 'Active', 42000, 'Super White', 'A', 150, 200, '195/65 R15', 'Hatchback', 250, TO_DATE('15/03/2024', 'DD/MM/YYYY'), 60, 'HRR');
 SELECT * FROM vehicles;
 
