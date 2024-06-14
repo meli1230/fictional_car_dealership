@@ -1,4 +1,4 @@
--- CREARE TABELE
+-- create tables
 
 CREATE TABLE p_departamente
 (
@@ -91,13 +91,13 @@ CREATE TABLE p_angajati
 DESCRIBE p_angajati;
 
 
--- MODIFICARI DE STRUCTURA
+-- structure alterations
 
--- 1. Modific tabela departamente astfel incat numar sa fie intre 8 si 88
+-- 1. Alter "p_departamente" table so that its number can only be between 8 and 88
 ALTER TABLE p_departamente MODIFY numar NUMBER(2) CHECK (numar BETWEEN 8 AND 88);
 
 
--- 2. Modific tabela autovehicule astfel incat indice_euro sa fie intre 1 si 6
+-- 2. Alter "p_autovehicule" table so that "indice_euro" is between 1 and 6
 ALTER TABLE p_autovehicule MODIFY indice_euro NUMBER(1) CHECK (indice_euro BETWEEN 1 AND 6);
 
 -- 3. Modific tabela reprezentante astfel incat denumire sa fie de lungime 20 in loc de 15, pentru a putea incapea nume mai lungi de reprezentante
